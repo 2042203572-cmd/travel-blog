@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>探索世界 - 旅游博客</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <!-- 导航 -->
+  <header id="header">
+    <div class="container nav-container">
+      <a href="#home" class="logo">探索世界</a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#home" class="nav-link">首页</a></li>
+        <li><a href="#home" class="nav-link">博客</a></li>
+        <li><a href="#about" class="nav-link">关于</a></li>
+        <li><a href="#contact" class="nav-link">联系</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </header>
+
+  <!-- 主体 -->
+  <main id="main-content">
+    <section id="home" class="page-section active">
+      <div class="container">
+        <div class="carousel">
+          <div class="carousel-inner" id="carousel-inner"></div>
+          <div class="carousel-controls">
+            <button class="carousel-btn" id="prev-btn">&#10094;</button>
+            <button class="carousel-btn" id="next-btn">&#10095;</button>
+          </div>
+          <div class="carousel-indicators" id="carousel-indicators"></div>
+        </div>
+        <h2 class="section-title">精选博客</h2>
+        <div class="blog-grid" id="blog-grid"></div>
+      </div>
+    </section>
+
+    <section id="blog-detail" class="page-section">
+      <div class="container">
+        <button id="back-to-blog" class="btn">返回博客列表</button>
+        <article id="blog-article"></article>
+        <div class="comments-section">
+          <h3>评论</h3>
+          <div id="comments-list"></div>
+          <form id="comment-form" class="contact-form">
+            <h3>发表评论</h3>
+            <div class="form-group">
+              <label>姓名</label>
+              <input type="text" id="comment-name" required class="form-control">
+            </div>
+            <div class="form-group">
+              <label>邮箱</label>
+              <input type="email" id="comment-email" required class="form-control">
+            </div>
+            <div class="form-group">
+              <label>内容</label>
+              <textarea id="comment-content" required minlength="10" maxlength="500" class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn">提交评论</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="page-section">
+      <div class="container">
+        <div class="about-section">
+          <div class="about-image"><img src="images/s9.jpg" alt="avatar"></div>
+          <div class="about-content">
+            <h2>关于我</h2>
+            <p>我是一名热爱旅行和写作的博主……</p>
+            <div class="skill-tags">
+              <span class="skill-tag">旅行摄影</span>
+              <span class="skill-tag">游记写作</span>
+              <span class="skill-tag">户外探险</span>
+              <span class="skill-tag">文化研究</span>
+              <span class="skill-tag">美食探索</span>
+            </div>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="#" class="social-link">GitHub</a>
+          <a href="#" class="social-link">LinkedIn</a>
+          <a href="#" class="social-link">微博</a>
+          <a href="#" class="social-link">Instagram</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="page-section">
+      <div class="container">
+        <h2 class="section-title">联系我</h2>
+        <div id="success-alert" class="alert alert-success">留言提交成功！</div>
+        <div id="error-alert" class="alert alert-error">提交失败，请检查表单。</div>
+        <form id="contact-form" class="contact-form">
+          <div class="form-group">
+            <label>姓名</label>
+            <input type="text" id="name" required class="form-control">
+          </div>
+          <div class="form-group">
+            <label>邮箱</label>
+            <input type="email" id="email" required class="form-control">
+          </div>
+          <div class="form-group">
+            <label>留言</label>
+            <textarea id="message" required minlength="10" maxlength="500" class="form-control"></textarea>
+          </div>
+          <button type="submit" class="btn" id="submit-btn">提交留言</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer>
+    <div class="container"><p>&copy; 2025 探索世界 - 旅游博客. 仅供作业使用.</p></div>
+  </footer>
+
+  <!-- 主题切换 -->
+  <button class="theme-toggle" id="theme-toggle">🌙</button>
+
+  <!-- 脚本 -->
+  <script type="module">
+    import { initRouter } from './js/router.js';
+    import { initTheme } from './js/theme.js';
+    import { initBlogList } from './js/blog.js';
+    import { initCarousel } from './js/carousel.js';
+    import { initFormValidation } from './js/utils.js';
+    import { initComments } from './js/comment.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initRouter();
+      initTheme();
+      initCarousel();
+      initBlogList();
+      initComments();
+      initFormValidation();
+    });
+  </script>
+</body>
+</html>
